@@ -11,5 +11,23 @@
     <body>
         <h1>I&rsquo;m not sure.</h1>
         <p>No JavaScript, so I&rsquo;m not sure.</p>
+
+        <script>
+            let h1 = document.getElementsByTagName("h1")[0],
+                p = document.getElementsByTagName("p")[0];
+
+            let ua = navigator.userAgent,
+                eua = "elementary OS",
+                e = false;
+
+            if ( ua.indexOf(eua) > -1 ) e = true;
+
+            if (e) {
+                h1.innerHTML = `${eua}`;
+                p.innerHTML = `Your User Agent includes &ldquo;${eua}&rdquo;.`;
+            } else {
+                p.innerHTML = `You have JavaScript, but I didn&rsquo;t see &ldquo;${eua}&rdquo; in your User Agent.`;
+            }
+        </script>
     </body>
 </html>
